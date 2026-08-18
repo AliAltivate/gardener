@@ -38,6 +38,7 @@ import (
 	apiserverapp "github.com/gardener/gardener/cmd/gardener-apiserver/app"
 	gardencorev1beta1 "github.com/gardener/gardener/pkg/apis/core/v1beta1"
 	operationsv1alpha1 "github.com/gardener/gardener/pkg/apis/operations/v1alpha1"
+	securityv1alpha1 "github.com/gardener/gardener/pkg/apis/security/v1alpha1"
 	seedmanagementv1alpha1 "github.com/gardener/gardener/pkg/apis/seedmanagement/v1alpha1"
 	"github.com/gardener/gardener/pkg/apiserver"
 	"github.com/gardener/gardener/pkg/apiserver/features"
@@ -398,6 +399,7 @@ func (g *GardenerAPIServer) registerGardenerAPIs(ctx context.Context) error {
 			gardencorev1beta1.SchemeGroupVersion.WithKind("ShootList"),
 			operationsv1alpha1.SchemeGroupVersion.WithKind("BastionList"),
 			seedmanagementv1alpha1.SchemeGroupVersion.WithKind("ManagedSeedList"),
+			securityv1alpha1.SchemeGroupVersion.WithKind("WorkloadIdentityList"),
 		} {
 			objList := &metav1.PartialObjectMetadataList{}
 			objList.SetGroupVersionKind(gvk)
